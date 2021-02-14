@@ -2,32 +2,19 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static utils.RandomUtils.*;
 
-public class AutomationPracticeFormTests {
-
-    String firstName = "Eduard",
-            lastName = "Ovechkin",
-            email = "ovi@chkin.edu",
-            gender = "Male",
-            userNumber = "1234567890",
-            yearOfBirth = "1972",
-            monthOfBirth = "January",
-            dayOfBirth = "16    ",
-            englishSubject = "English",
-            mathsSubject = "Maths",
-            sportsHobby = "Sports",
-            readingHobby = "Reading",
-            imageFileName = "image.png",
-            currentAddress = "Street Lenin, 1",
-            state = "Haryana",
-            city = "Panipat";
+public class AutomationPracticeFormWithFakerTests {
 
     @BeforeAll
     static void setup() {
@@ -36,6 +23,25 @@ public class AutomationPracticeFormTests {
 
     @Test
     void modalContentTest() {
+        Faker faker = new Faker();
+        HashMap<String, String> randomDayMonthYearMap = getRandomBYearMap();
+
+        String firstName = faker.name().firstName(),
+                lastName = faker.name().lastName(),
+                email = faker.internet().emailAddress(),
+                gender = getRandomGender(),
+                userNumber = faker.number().digits(10),
+                yearOfBirth = randomDayMonthYearMap.get("year"),
+                monthOfBirth = randomDayMonthYearMap.get("month"),
+                dayOfBirth = randomDayMonthYearMap.get("day"),
+                englishSubject = "English",
+                mathsSubject = "Maths",
+                sportsHobby = "Sports",
+                readingHobby = "Reading",
+                imageFileName = "image.png",
+                currentAddress = "Street Lenin, 1",
+                state = "Haryana",
+                city = "Panipat";
         open("https://demoqa.com/automation-practice-form");
 
         $("#firstName").setValue(firstName);
