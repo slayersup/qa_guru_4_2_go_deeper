@@ -1,9 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -12,14 +10,10 @@ import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static utils.RandomUtils.*;
+import static utils.RandomUtils.getRandomBYearMap;
+import static utils.RandomUtils.getRandomGender;
 
-public class AutomationPracticeFormWithFakerTests {
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-    }
+public class AutomationPracticeFormWithFakerTests extends TestBase{
 
     @Test
     void modalContentTest() {

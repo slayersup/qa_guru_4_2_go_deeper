@@ -1,8 +1,6 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -10,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticeFormTests {
+public class AutomationPracticeFormTests extends TestBase{
 
     String firstName = "Eduard",
             lastName = "Ovechkin",
@@ -28,11 +26,6 @@ public class AutomationPracticeFormTests {
             currentAddress = "Street Lenin, 1",
             state = "Haryana",
             city = "Panipat";
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-    }
 
     @Test
     void modalContentTest() {
