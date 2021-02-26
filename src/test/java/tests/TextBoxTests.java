@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -8,6 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxTests extends TestBase{
 
+    @Disabled
     @Test
     void dataAppearsInOutputBlockTest() {
         open("https://demoqa.com/text-box");
