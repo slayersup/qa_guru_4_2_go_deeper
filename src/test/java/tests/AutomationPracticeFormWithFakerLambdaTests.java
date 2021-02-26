@@ -84,5 +84,4 @@ public class AutomationPracticeFormWithFakerLambdaTests extends TestBase {
             submitTableRows.filterBy(text("State and City")).shouldHave(texts(state + " " + city));
         });
     }
-
 }

@@ -75,5 +75,4 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
         submitTableRows.filterBy(text("Address")).shouldHave(texts(currentAddress));
         submitTableRows.filterBy(text("State and City")).shouldHave(texts(state + " " + city));
     }
-
 }
